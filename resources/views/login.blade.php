@@ -131,8 +131,8 @@ a.button{
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
 			<div class="register-forget opacity">
-                <a href="{{ route('register') }}" class="regis">Register yuk</a>
-                <a href="{{ route('lupa') }}" class="forgot">Forgot Password?</a>
+                <a href="{{ route('register') }}" class="regis">Register </a>
+                <a href="{{ route('lupa') }}" class="forgot">Forgot Password? </a>
             </div>
             <a href="{{ route('petugas') }}" class="button" >Login</a>
 		</form>
