@@ -11,8 +11,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root{
-  --color-default:#004f83;
-  --color-second:#0067ac;
+  --color-default:#69888e;
+  --color-second:#69888e;
   --color-white:#fff;
   --color-body:#e4e9f7;
   --color-light:#e0e0e0;
@@ -322,6 +322,45 @@ body{
 .bx-log-out{
     margin-top: 10px;
 }
+.container {
+    max-width:1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.btn {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #69888e;
+    color: #fffff;
+    margin-top: 2%;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
   </style>
 </head>
 <body>
@@ -392,6 +431,35 @@ body{
   </div>
   <section class="home-section">
     <div class="text">Dashbord</div>
+    <!-- CRUD -->
+    <div class="container">
+        <h2>Data Kategori Buku</h2>
+        <button class="btn btn-primary" id="btnTambah">Tambah Data</button>
+        <table id="tableData">
+          <thead>
+            <tr>
+              <th class="no">No</th>
+              <th class="kategori">Kategori</th>
+              <th class="aksi">Pilihan</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyData">
+          </tbody>
+        </table>
+      </div>
+      <!-- Modal Tambah/Edit Data -->
+      <div id="modalData" style="display: none;">
+        <div class="container">
+          <h2 id="modalTitle">Tambah Data Kategori</h2>
+          <form id="formKategori">
+            <label for="kategori">Kategori:</label><br>
+            <input type="text" id="kategori" name="kategori" required><br><br>
+            <input type="submit" value="Simpan" class="btn btn-primary">
+            <button type="button" class="btn btn-danger" id="btnBatal">Batal</button>
+          </form>
+        </div>
+      </div>
+  </div>
   </section>
   <script>
     window.onload = function(){
@@ -424,6 +492,78 @@ body{
             window.location.href = "{{ route('login') }}";
         });
     }
+    const modalData = document.getElementById('modalData');
+  const btnTambah = document.getElementById('btnTambah');
+  const btnBatal = document.getElementById('btnBatal');
+  const formKategori = document.getElementById('formKategori');
+  const tbodyData = document.getElementById('tbodyData');
+
+  let dataKategori = []; // Simpan data kategori
+
+  // Tampilkan modal tambah data
+  btnTambah.addEventListener('click', () => {
+    modalData.style.display = 'block';
+    document.getElementById('modalTitle').textContent = 'Tambah Data Kategori';
+    formKategori.reset();
+  });
+
+  // Tutup modal ketika tombol Batal ditekan
+  btnBatal.addEventListener('click', () => {
+    modalData.style.display = 'none';
+  });
+
+  // Tampilkan data kategori
+  function tampilkanData() {
+    tbodyData.innerHTML = '';
+    dataKategori.forEach((item, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${item}</td>
+        <td>
+          <button class="btn btn-primary btnEdit" data-index="${index}">Edit</button>
+          <button class="btn btn-danger btnHapus" data-index="${index}">Hapus</button>
+        </td>
+      `;
+      tbodyData.appendChild(tr);
+    });
+  }
+
+  // Tambah data kategori
+  formKategori.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const kategori = document.getElementById('kategori').value;
+    if (kategori.trim() !== '') {
+      dataKategori.push(kategori);
+      tampilkanData();
+      modalData.style.display = 'none';
+    }
+  });
+
+  // Edit data kategori
+  tbodyData.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btnEdit')) {
+      const index = e.target.getAttribute('data-index');
+      const kategori = dataKategori[index];
+      document.getElementById('kategori').value = kategori;
+      document.getElementById('modalTitle').textContent = 'Edit Data Kategori';
+      modalData.style.display = 'block';
+
+      // Hapus data yang lama
+      dataKategori.splice(index, 1);
+      tampilkanData();
+    }
+  });
+
+  // Hapus data kategori
+  tbodyData.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btnHapus')) {
+      const index = e.target.getAttribute('data-index');
+      dataKategori.splice(index, 1);
+      tampilkanData();
+    }
+  });
+
 </script>
 </body>
 </html>

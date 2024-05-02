@@ -6,6 +6,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\passwordforgotController;
 use App\Http\Controllers\petugasController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\datakategoriController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +28,5 @@ Route::get('/register', [RegisterController::class, 'registerPage'])->name('regi
 Route::get('/lupa', [passwordforgotController::class, 'password'])->name('lupa');
 Route::get('/petugas', [petugasController::class, 'petugasPage'])->name('petugas');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::get('/kategori', [datakategoriController::class, 'kategoriPage'])->name('kategori');
+
