@@ -439,7 +439,10 @@ th, td {
           <thead>
             <tr>
               <th class="no">No</th>
-              <th class="kategori">Kategori</th>
+              <th class="Nama">Nama</th>
+              <th class="alamat">Alamat</th>
+              <th>Jenis Kelamin</th>
+              <th>Email</th>
               <th class="aksi">Pilihan</th>
             </tr>
           </thead>
@@ -448,20 +451,34 @@ th, td {
         </table>
       </div>
       <!-- Modal Tambah/Edit Data -->
-      <div id="modalData" style="display: none;">
+      <div id="modalEdit" style="display: none;">
         <div class="container">
-          <h2 id="modalTitle">Tambah Data Kategori</h2>
-          <form id="formKategori">
-            <label for="kategori">Kategori:</label><br>
-            <input type="text" id="kategori" name="kategori" required><br><br>
-            <input type="submit" value="Simpan" class="btn btn-primary">
-            <button type="button" class="btn btn-danger" id="btnBatal">Batal</button>
-          </form>
+            <h2 id="modalEditTitle">Edit Data</h2>
+            <form id="formEdit">
+                <label for="editNama">Nama:</label><br>
+                <input type="text" id="editNama" name="editNama" required><br><br>
+                <label for="editAlamat">Alamat:</label><br>
+                <input type="text" id="editAlamat" name="editAlamat" required><br><br>
+                <label for="editJenisKelamin">Jenis Kelamin:</label><br>
+                <select id="editJenisKelamin" name="editJenisKelamin" required>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select><br><br>
+                <label for="editEmail">Email:</label><br>
+                <input type="email" id="editEmail" name="editEmail" required><br><br>
+                <input type="submit" value="Simpan" class="btn btn-primary">
+                <button type="button" class="btn btn-danger" onclick="batalEdit()">Batal</button>
+            </form>
+            <td class="aksi">
+                <button class="btn-edit" onclick="editData()">Edit</button>
+                <button class="btn-hapus" onclick="hapusData()">Hapus</button>
+            </td>
+
         </div>
-      </div>
+    </div>
   </div>
   </section>
-  <script>
+<script>
     window.onload = function(){
         const sidebar = document.querySelector(".sidebar");
         const closeBtn = document.querySelector("#btn");
@@ -492,77 +509,41 @@ th, td {
             window.location.href = "{{ route('login') }}";
         });
     }
-    const modalData = document.getElementById('modalData');
-  const btnTambah = document.getElementById('btnTambah');
-  const btnBatal = document.getElementById('btnBatal');
-  const formKategori = document.getElementById('formKategori');
-  const tbodyData = document.getElementById('tbodyData');
+    // Fungsi untuk menampilkan modal tambah data kategori
+    function tambahKategori() {
+        document.getElementById("modalTambahKategori").style.display = "block";
+    }
 
-  let dataKategori = []; // Simpan data kategori
+    // Fungsi untuk menyembunyikan modal tambah data kategori
+    function batalTambahKategori() {
+        document.getElementById("modalTambahKategori").style.display = "none";
+    }
 
-  // Tampilkan modal tambah data
-  btnTambah.addEventListener('click', () => {
-    modalData.style.display = 'block';
-    document.getElementById('modalTitle').textContent = 'Tambah Data Kategori';
-    formKategori.reset();
-  });
-
-  // Tutup modal ketika tombol Batal ditekan
-  btnBatal.addEventListener('click', () => {
-    modalData.style.display = 'none';
-  });
-
-  // Tampilkan data kategori
-  function tampilkanData() {
-    tbodyData.innerHTML = '';
-    dataKategori.forEach((item, index) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${index + 1}</td>
-        <td>${item}</td>
-        <td>
-          <button class="btn btn-primary btnEdit" data-index="${index}">Edit</button>
-          <button class="btn btn-danger btnHapus" data-index="${index}">Hapus</button>
-        </td>
-      `;
-      tbodyData.appendChild(tr);
+    // Menangani event saat judul tabel "Nama" di-klik
+    document.querySelector(".Nama").addEventListener("click", function() {
+        tambahKategori();
     });
-  }
 
-  // Tambah data kategori
-  formKategori.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const kategori = document.getElementById('kategori').value;
-    if (kategori.trim() !== '') {
-      dataKategori.push(kategori);
-      tampilkanData();
-      modalData.style.display = 'none';
-    }
-  });
+    // Menangani event saat judul tabel "Alamat" di-klik
+    document.querySelector(".alamat").addEventListener("click", function() {
+        tambahKategori();
+    });
 
-  // Edit data kategori
-  tbodyData.addEventListener('click', (e) => {
-    if (e.target.classList.contains('btnEdit')) {
-      const index = e.target.getAttribute('data-index');
-      const kategori = dataKategori[index];
-      document.getElementById('kategori').value = kategori;
-      document.getElementById('modalTitle').textContent = 'Edit Data Kategori';
-      modalData.style.display = 'block';
+    // Menangani event saat judul tabel "Jenis Kelamin" di-klik
+    document.querySelector(".jenisKelamin").addEventListener("click", function() {
+        tambahKategori();
+    });
 
-      // Hapus data yang lama
-      dataKategori.splice(index, 1);
-      tampilkanData();
-    }
-  });
+    // Menangani event saat judul tabel "Email" di-klik
+    document.querySelector(".email").addEventListener("click", function() {
+        tambahKategori();
+    });
 
-  // Hapus data kategori
-  tbodyData.addEventListener('click', (e) => {
-    if (e.target.classList.contains('btnHapus')) {
-      const index = e.target.getAttribute('data-index');
-      dataKategori.splice(index, 1);
-      tampilkanData();
-    }
-  });
+    // Menangani event saat judul tabel "Aksi" di-klik
+    document.querySelector(".aksi").addEventListener("click", function() {
+        tambahKategori();
+    });
+</script>
 
 </script>
 </body>

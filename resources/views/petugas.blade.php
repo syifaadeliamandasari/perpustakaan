@@ -11,8 +11,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root{
-  --color-default:#004f83;
-  --color-second:#0067ac;
+  --color-default:#69888e;
+  --color-second:#69888e;
   --color-white:#fff;
   --color-body:#e4e9f7;
   --color-light:#e0e0e0;
@@ -354,28 +354,28 @@ body{
         <span class="tooltip">Data Kategori</span>
       </li>
       <li>
-        <a href="#">
+        <a href="{{ route('buku') }}">
             <i class="bx bx-book"></i>
           <span class="link_name">Data Buku</span>
         </a>
         <span class="tooltip">Data Buku</span>
       </li>
       <li>
-        <a href="tabel.html">
+        <a href="{{ route('anggota') }}">
             <i class='bx bxs-book-content'></i>
           <span class="link_name">Data Anggota</span>
         </a>
         <span class="tooltip">Data Anggota</span>
       </li>
       <li>
-        <a href="table.html">
+        <a href="{{ route('peminjaman') }}">
             <i class="bx bx-calendar"></i>
           <span class="link_name">Peminjaman</span>
         </a>
         <span class="tooltip">Peminjaman</span>
       </li>
       <li>
-        <a href="login.html">
+        <a href="{{ route('pengambalian') }}">
             <i class="bx bx-calendar-check"></i>
           <span class="link_name">Pengembalian</span>
         </a>

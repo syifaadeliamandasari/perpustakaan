@@ -433,33 +433,47 @@ th, td {
     <div class="text">Dashbord</div>
     <!-- CRUD -->
     <div class="container">
-        <h2>Data Kategori</h2>
+        <h2>Data Buku</h2>
         <button class="btn btn-primary" id="btnTambah">Tambah Data</button>
         <table id="tableData">
           <thead>
             <tr>
               <th class="no">No</th>
-              <th class="kategori">Kategori</th>
+              <th class="judul">Judul</th>
+              <th class="deskripsi">Deskripsi</th>
+              <th class="jumlah">Jumlah</th>
+              <!-- Tambahan untuk pilihan edit dan hapus -->
               <th class="aksi">Pilihan</th>
             </tr>
           </thead>
           <tbody id="tbodyData">
+            <!-- Data buku akan ditampilkan di sini -->
           </tbody>
         </table>
       </div>
-      <!-- Modal Tambah/Edit Data -->
+
+      <!-- Modal Tambah/Edit Data Buku -->
       <div id="modalData" style="display: none;">
         <div class="container">
-          <h2 id="modalTitle">Tambah Data Kategori</h2>
-          <form id="formKategori">
+          <h2 id="modalTitle">Tambah Data Buku</h2>
+          <form id="formBuku">
+            <label for="judul">Judul:</label><br>
+            <input type="text" id="judul" name="judul" required><br><br>
+
             <label for="kategori">Kategori:</label><br>
             <input type="text" id="kategori" name="kategori" required><br><br>
+
+            <label for="deskripsi">Deskripsi:</label><br>
+            <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea><br><br>
+
+            <label for="jumlah">Jumlah:</label><br>
+            <input type="number" id="jumlah" name="jumlah" required><br><br>
+
             <input type="submit" value="Simpan" class="btn btn-primary">
             <button type="button" class="btn btn-danger" id="btnBatal">Batal</button>
           </form>
         </div>
       </div>
-  </div>
   </section>
   <script>
     window.onload = function(){
@@ -492,78 +506,86 @@ th, td {
             window.location.href = "{{ route('login') }}";
         });
     }
-    const modalData = document.getElementById('modalData');
-  const btnTambah = document.getElementById('btnTambah');
-  const btnBatal = document.getElementById('btnBatal');
-  const formKategori = document.getElementById('formKategori');
-  const tbodyData = document.getElementById('tbodyData');
 
-  let dataKategori = []; // Simpan data kategori
+const modalData = document.getElementById('modalData');
+const btnTambah = document.getElementById('btnTambah');
+const btnBatal = document.getElementById('btnBatal');
+const formBuku = document.getElementById('formBuku');
+const tbodyData = document.getElementById('tbodyData');
 
-  // Tampilkan modal tambah data
-  btnTambah.addEventListener('click', () => {
-    modalData.style.display = 'block';
-    document.getElementById('modalTitle').textContent = 'Tambah Data Kategori';
-    formKategori.reset();
+let dataBuku = []; // Simpan data buku
+
+// Tampilkan modal tambah data
+btnTambah.addEventListener('click', () => {
+  modalData.style.display = 'block';
+  document.getElementById('modalTitle').textContent = 'Tambah Data Buku';
+  formBuku.reset();
+});
+
+// Tutup modal ketika tombol Batal ditekan
+btnBatal.addEventListener('click', () => {
+  modalData.style.display = 'none';
+});
+
+// Tampilkan data buku
+function tampilkanData() {
+  tbodyData.innerHTML = '';
+  dataBuku.forEach((item, index) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${item.judul}</td>
+      <td>${item.deskripsi}</td>
+      <td>${item.jumlah}</td>
+      <td>
+        <button class="btn btn-primary btnEdit" data-index="${index}">Edit</button>
+        <button class="btn btn-danger btnHapus" data-index="${index}">Hapus</button>
+      </td>
+    `;
+    tbodyData.appendChild(tr);
   });
+}
 
-  // Tutup modal ketika tombol Batal ditekan
-  btnBatal.addEventListener('click', () => {
+// Tambah data buku
+formBuku.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const judul = document.getElementById('judul').value;
+  const kategori = document.getElementById('kategori').value;
+  const deskripsi = document.getElementById('deskripsi').value;
+  const jumlah = document.getElementById('jumlah').value;
+
+  // Validasi data
+  if (judul.trim() !== '' && kategori.trim() !== '' && deskripsi.trim() !== '' && jumlah.trim() !== '') {
+    const buku = { judul, kategori, deskripsi, jumlah };
+    dataBuku.push(buku);
+    tampilkanData();
     modalData.style.display = 'none';
-  });
-
-  // Tampilkan data kategori
-  function tampilkanData() {
-    tbodyData.innerHTML = '';
-    dataKategori.forEach((item, index) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${index + 1}</td>
-        <td>${item}</td>
-        <td>
-          <button class="btn btn-primary btnEdit" data-index="${index}">Edit</button>
-          <button class="btn btn-danger btnHapus" data-index="${index}">Hapus</button>
-        </td>
-      `;
-      tbodyData.appendChild(tr);
-    });
   }
+});
 
-  // Tambah data kategori
-  formKategori.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const kategori = document.getElementById('kategori').value;
-    if (kategori.trim() !== '') {
-      dataKategori.push(kategori);
-      tampilkanData();
-      modalData.style.display = 'none';
-    }
-  });
+// Edit data buku
+tbodyData.addEventListener('click', (e) => {
+  if (e.target.classList.contains('btnEdit')) {
+    const index = e.target.getAttribute('data-index');
+    const buku = dataBuku[index];
+    document.getElementById('judul').value = buku.judul;
+    document.getElementById('kategori').value = buku.kategori;
+    document.getElementById('deskripsi').value = buku.deskripsi;
+    document.getElementById('jumlah').value = buku.jumlah;
+    document.getElementById('modalTitle').textContent = 'Edit Data Buku';
+    modalData.style.display = 'block';
 
-  // Edit data kategori
-  tbodyData.addEventListener('click', (e) => {
-    if (e.target.classList.contains('btnEdit')) {
-      const index = e.target.getAttribute('data-index');
-      const kategori = dataKategori[index];
-      document.getElementById('kategori').value = kategori;
-      document.getElementById('modalTitle').textContent = 'Edit Data Kategori';
-      modalData.style.display = 'block';
+  }
+});
 
-      // Hapus data yang lama
-      dataKategori.splice(index, 1);
-      tampilkanData();
-    }
-  });
-
-  // Hapus data kategori
-  tbodyData.addEventListener('click', (e) => {
-    if (e.target.classList.contains('btnHapus')) {
-      const index = e.target.getAttribute('data-index');
-      dataKategori.splice(index, 1);
-      tampilkanData();
-    }
-  });
-
+// Hapus data buku
+tbodyData.addEventListener('click', (e) => {
+  if (e.target.classList.contains('btnHapus')) {
+    const index = e.target.getAttribute('data-index');
+    dataBuku.splice(index, 1);
+    tampilkanData();
+  }
+});
 </script>
 </body>
 </html>

@@ -149,7 +149,7 @@ input {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-            <input type="teks" placeholder="nama    " />
+            <input type="teks" placeholder="Nama    " />
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
             <a href="{{ route('petugas') }}" class="button" style="border-radius: 20px;
