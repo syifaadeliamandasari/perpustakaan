@@ -337,6 +337,7 @@ body{
 }
 
 .btn-primary {
+    margin-bottom: 2%;
     background-color: #69888e;
     color: #fffff;
     margin-top: 2%;
@@ -433,52 +434,51 @@ th, td {
     <div class="text">Dashbord</div>
     <!-- CRUD -->
     <div class="container">
-        <h2>Data Kategori</h2>
+        <h2>Data Anggota</h2>
         <button class="btn btn-primary" id="btnTambah">Tambah Data</button>
-        <table id="tableData">
-          <thead>
-            <tr>
-              <th class="no">No</th>
-              <th class="Nama">Nama</th>
-              <th class="alamat">Alamat</th>
-              <th>Jenis Kelamin</th>
-              <th>Email</th>
-              <th class="aksi">Pilihan</th>
-            </tr>
-          </thead>
-          <tbody id="tbodyData">
-          </tbody>
-        </table>
-      </div>
-      <!-- Modal Tambah/Edit Data -->
-      <div id="modalEdit" style="display: none;">
-        <div class="container">
-            <h2 id="modalEditTitle">Edit Data</h2>
-            <form id="formEdit">
-                <label for="editNama">Nama:</label><br>
-                <input type="text" id="editNama" name="editNama" required><br><br>
-                <label for="editAlamat">Alamat:</label><br>
-                <input type="text" id="editAlamat" name="editAlamat" required><br><br>
-                <label for="editJenisKelamin">Jenis Kelamin:</label><br>
-                <select id="editJenisKelamin" name="editJenisKelamin" required>
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                </select><br><br>
-                <label for="editEmail">Email:</label><br>
-                <input type="email" id="editEmail" name="editEmail" required><br><br>
-                <input type="submit" value="Simpan" class="btn btn-primary">
-                <button type="button" class="btn btn-danger" onclick="batalEdit()">Batal</button>
-            </form>
-            <td class="aksi">
-                <button class="btn-edit" onclick="editData()">Edit</button>
-                <button class="btn-hapus" onclick="hapusData()">Hapus</button>
-            </td>
+        <table class="tableData">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Jenis Kelamin</th>
+                <th>Kelas</th>
+                <th>Email</th>
+                <th>Pilihan</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyData">
+              <!-- Data anggota akan ditampilkan di sini -->
+            </tbody>
+          </table>
 
-        </div>
+        <!-- Modal Tambah/Edit Data Anggota -->
+        <div id="modalData" style="display: none;">
+    <div class="container">
+      <h2 id="modalTitle">Tambah Data Anggota</h2>
+      <form id="formAnggota">
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama" required><br><br>
+
+        <label for="jenisKelamin">Jenis Kelamin:</label><br>
+        <select id="jenisKelamin" name="jenisKelamin" required>
+          <option value="laki-laki">Laki-laki</option>
+          <option value="perempuan">Perempuan</option>
+        </select><br><br>
+
+        <label for="kelas">Kelas:</label><br>
+        <input id="text" name="text" required></input><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="text" id="text" name="text" required><br><br>
+
+        <input type="submit" value="Simpan" class="btn btn-primary">
+        <button type="button" class="btn btn-danger" id="btnBatal">Batal</button>
+      </form>
     </div>
   </div>
+    </div>
   </section>
-  <script src="../js/anggota.js"></script>
-</script>
+  <script src="../js/buku.js"></script>
 </body>
 </html>

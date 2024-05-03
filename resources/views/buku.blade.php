@@ -337,6 +337,7 @@ body{
 }
 
 .btn-primary {
+    margin-bottom: 2%;
     background-color: #69888e;
     color: #fffff;
     margin-top: 2%;
@@ -440,6 +441,7 @@ th, td {
             <tr>
               <th class="no">No</th>
               <th class="judul">Judul</th>
+              <th class="kategori">kategori</th>
               <th class="deskripsi">Deskripsi</th>
               <th class="jumlah">Jumlah</th>
               <!-- Tambahan untuk pilihan edit dan hapus -->
@@ -450,30 +452,29 @@ th, td {
             <!-- Data buku akan ditampilkan di sini -->
           </tbody>
         </table>
-      </div>
+        <!-- Modal Tambah/Edit Data Buku -->
+          <div id="modalData" style="display: none;">
+            <div class="container">
+              <h2 id="modalTitle">Tambah Data Buku</h2>
+              <form id="formBuku">
+                <label for="judul">Judul:</label><br>
+                <input type="text" id="judul" name="judul" required><br><br>
 
-      <!-- Modal Tambah/Edit Data Buku -->
-      <div id="modalData" style="display: none;">
-        <div class="container">
-          <h2 id="modalTitle">Tambah Data Buku</h2>
-          <form id="formBuku">
-            <label for="judul">Judul:</label><br>
-            <input type="text" id="judul" name="judul" required><br><br>
+                <label for="kategori">Kategori:</label><br>
+                <input type="text" id="kategori" name="kategori" required><br><br>
 
-            <label for="kategori">Kategori:</label><br>
-            <input type="text" id="kategori" name="kategori" required><br><br>
+                <label for="deskripsi">Deskripsi:</label><br>
+                <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea><br><br>
 
-            <label for="deskripsi">Deskripsi:</label><br>
-            <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea><br><br>
+                <label for="jumlah">Jumlah:</label><br>
+                <input type="number" id="jumlah" name="jumlah" required><br><br>
 
-            <label for="jumlah">Jumlah:</label><br>
-            <input type="number" id="jumlah" name="jumlah" required><br><br>
-
-            <input type="submit" value="Simpan" class="btn btn-primary">
-            <button type="button" class="btn btn-danger" id="btnBatal">Batal</button>
-          </form>
-        </div>
-      </div>
+                <input type="submit" value="Simpan" class="btn btn-primary">
+                <button type="button" class="btn btn-danger" id="btnBatal">Batal</button>
+              </form>
+            </div>
+          </div>
+    </div>
   </section>
   <script src="../js/buku.js"></script>
 </body>

@@ -337,6 +337,7 @@ body{
 }
 
 .btn-primary {
+    margin-bottom: 2%;
     background-color: #69888e;
     color: #fffff;
     margin-top: 2%;

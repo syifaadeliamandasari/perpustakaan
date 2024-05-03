@@ -337,6 +337,7 @@ body{
 }
 
 .btn-primary {
+    margin-bottom: 2%;
     background-color: #69888e;
     color: #fffff;
     margin-top: 2%;
@@ -360,7 +361,9 @@ th, td {
   th {
     background-color: #f2f2f2;
   }
-
+.hapus{
+    background-color: red;
+}
   </style>
 </head>
 <body>
@@ -431,47 +434,48 @@ th, td {
   </div>
   <section class="home-section">
     <div class="text">Dashbord</div>
-    <!-- CRUD -->
-    <div class="container">
-        <h2>Peminjaman</h2>
-        <button class="btn btn-primary" id="btnTambah">Tambah Data</button>
-        <table id="tableData">
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Buku</th>
-              <th>Nama</th>
-              <th>Tanggal Peminjaman</th>
-              <th>Tanggal Jatuh Tempo</th>
-              <th>Tanggal Kembali</th>
-              <th>Status</th>
-              <th>Edit</th>
-               <th>Hapus</th>
-            </tr>
-          </thead>
-          <tbody id="tbodyData">
-          </tbody>
-        </table>
-      </div>
-      <!-- Modal Tambah/Edit Data -->
-      <div id="modalData" style="display: none;">
-        <div class="container">
-          <h2 id="modalTitle">Tambah Data Peminjaman</h2>
-          <form id="formPeminjaman">
-            <label for="nama">Nama:</label><br>
-            <input type="text" id="nama" name="nama" required><br><br>
-            <label for="buku">Buku:</label><br>
-            <input type="text" id="buku" name="buku" required><br><br>
-            <label for="tgl_pinjam">Tanggal Peminjaman:</label><br>
-            <input type="date" id="tgl_pinjam" name="tgl_pinjam" required><br><br>
-            <label for="tgl_tempo">Tanggal Jatuh Tempo:</label><br>
-            <input type="date" id="tgl_tempo" name="tgl_tempo" required><br><br>
-            <input type="submit" value="Simpan" class="btn btn-primary">
-            <button type="button" class="btn btn-danger" id="btnBatal">Batal</button>
-          </form>
-        </div>
-      </div>
-  </div>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td scope="col">No</td>
+            <td scope="col">Buku</td>
+            <td scope="col">Nama</td>
+            <td scope="col">Tanggal Peminjaman</td>
+            <td scope="col">Tanggal Jatuh Tempo</td>
+            <td scope="col">Tanggal Kembali</td>
+            <td scope="col">Pilihan</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">1</td>
+            <td>Dilan</td>
+            <td>Naufal Shadiq Sumantri</td>
+            <td>2024-05-01</td>
+            <td>2024-05-04</td>
+            <td>2024-05-02</td>
+            <td><button class="btn btn-danger btnHapus">Hapus</button></td>
+          </tr>
+          <tr>
+            <td scope="row">2</td>
+            <td>Rpl</td>
+            <td>Syifa Adelia Mandasari</td>
+            <td>2024-01-09</td>
+            <td>2024-01-15</td>
+            <td>2024-01-10</td>
+            <td><button class="btn btn-danger btnHapus">Hapus</button></td>
+          </tr>
+          <tr>
+            <td scope="row">3</td>
+            <td>One Piece</td>
+            <td>Zhaskia Naysa</td>
+            <td>2024-08-07</td>
+            <td>2024-08-30</td>
+            <td>2024-08-29</td>
+            <td><button class="btn btn-danger btnHapus">Hapus</button></td>
+          </tr>
+        </tbody>
+      </table>
   </section>
   <script>
     window.onload = function(){
@@ -504,79 +508,6 @@ th, td {
             window.location.href = "{{ route('login') }}";
         });
     }
-    const modalData = document.getElementById('modalData');
-const btnTambah = document.getElementById('btnTambah');
-const btnBatal = document.getElementById('btnBatal');
-const formPeminjaman = document.getElementById('formPeminjaman');
-
-let dataPeminjaman = []; // Simpan data peminjaman
-
-// Tampilkan modal tambah data
-btnTambah.addEventListener('click', () => {
-  modalData.style.display = 'block';
-  document.getElementById('modalTitle').textContent = 'Tambah Data Peminjaman';
-  formPeminjaman.reset();
-});
-
-// Tutup modal ketika tombol Batal ditekan
-btnBatal.addEventListener('click', () => {
-  modalData.style.display = 'none';
-});
-
-// Tambah data peminjaman
-formPeminjaman.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const nama = document.getElementById('nama').value;
-  const buku = document.getElementById('buku').value;
-  const tgl_pinjam = document.getElementById('tgl_pinjam').value;
-  const tgl_tempo = document.getElementById('tgl_tempo').value;
-  const status = "Sudah Kembali"; // Menandakan bahwa data sudah dikembalikan
-  if (nama.trim() !== '' && buku.trim() !== '' && tgl_pinjam.trim() !== '' && tgl_tempo.trim() !== '') {
-    const data = {
-      nama: nama,
-      buku: buku,
-      tgl_pinjam: tgl_pinjam,
-      tgl_tempo: tgl_tempo,
-      status: status
-    };
-    dataPeminjaman.push(data);
-    tampilkanDataPeminjaman();
-    modalData.style.display = 'none';
-  }
-});
-
-// Tampilkan data peminjaman
-function tampilkanDataPeminjaman() {
-  const tbodyData = document.getElementById('tbodyData');
-  // Kosongkan isi tbody
-  tbodyData.innerHTML = '';
-
-  // Loop melalui setiap data peminjaman
-  dataPeminjaman.forEach((data, index) => {
-    // Buat sebuah baris baru untuk setiap data peminjaman
-    const row = document.createElement('tr');
-
-    // Tambahkan kolom-kolom untuk setiap properti data peminjaman
-    row.innerHTML = `
-  <td>${index + 1}</td>
-  <td>${data.buku}</td>
-  <td>${data.nama}</td>
-  <td>${data.tgl_pinjam}</td>
-  <td>${data.tgl_tempo}</td>
-  <td></td> // Diisi dengan tanggal kembali atau status
-  <td>${data.status}</td>
-  <td><button class="btnEdit" onclick="editData(${index})">Edit</button></td>
-  <td><button class="btnHapus" onclick="hapusData(${index})">Hapus</button></td>
-`;
-
-// Di dalam container modalData
-<button type="button" class="btn btn-danger" id="btnKembali">Kembali</button>
-
-    // Tambahkan baris ke dalam tbody
-    tbodyData.appendChild(row);
-  });
-}
-
-</script>
+  </script>
 </body>
 </html>

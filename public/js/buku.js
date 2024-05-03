@@ -57,6 +57,7 @@ const tr = document.createElement('tr');
 tr.innerHTML = `
   <td>${index + 1}</td>
   <td>${item.judul}</td>
+  <td>${item.kategori}</td>
   <td>${item.deskripsi}</td>
   <td>${item.jumlah}</td>
   <td>
