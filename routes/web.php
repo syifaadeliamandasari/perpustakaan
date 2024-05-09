@@ -28,7 +28,6 @@ Route::get('/login', function () {
     return view('login');
 });
 
-
 Route::get('/register', [RegisterController::class, 'registerPage'])->name('register');
 Route::get('/lupa', [passwordforgotController::class, 'password'])->name('lupa');
 Route::get('/petugas', [petugasController::class, 'petugasPage'])->name('petugas');
