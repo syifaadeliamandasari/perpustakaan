@@ -25,7 +25,7 @@ window.onload = function(){
     // Menangani logout
     logoutBtn.addEventListener("click", function() {
         // Redirect ke halaman login
-        window.location.href = "{{ route('login') }}";
+        window.location.href = "{{ route('loginpetugas') }}";
     });
 }
 

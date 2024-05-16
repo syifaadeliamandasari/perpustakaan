@@ -443,7 +443,7 @@ body{
         </a>
         <span class="tooltip">Pengembalian</span>
       </li>
-      <li>
+       <li>
         <a href="{{ route('login') }}">
             <i class='bx bx-log-in'></i>
             <span class="link_name">Log Out</span>
@@ -561,6 +561,7 @@ body{
                 closeBtn.classList.replace("bx-menu-alt-right","bx-menu")
             }
         }
+
 
         // Menangani logout
         logoutBtn.addEventListener("click", function() {
