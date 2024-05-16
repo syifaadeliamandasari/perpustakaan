@@ -61,7 +61,7 @@ tr.innerHTML = `
   <td>${item.deskripsi}</td>
   <td>${item.jumlah}</td>
   <td>
-    <button class="btn btn-primary btnEdit" data-index="${index}">Edit</button>
+    <button class="btn btn-primary btnSetujui" data-index="${index}">Setujui Peminjaman</button>
     <button class="btn btn-danger btnHapus" data-index="${index}">Hapus</button>
   </td>
 `;
@@ -86,21 +86,6 @@ modalData.style.display = 'none';
 }
 });
 
-// Edit data buku
-tbodyData.addEventListener('click', (e) => {
-if (e.target.classList.contains('btnEdit')) {
-const index = e.target.getAttribute('data-index');
-const buku = dataBuku[index];
-document.getElementById('judul').value = buku.judul;
-document.getElementById('kategori').value = buku.kategori;
-document.getElementById('deskripsi').value = buku.deskripsi;
-document.getElementById('jumlah').value = buku.jumlah;
-document.getElementById('modalTitle').textContent = 'Edit Data Buku';
-modalData.style.display = 'block';
-
-}
-});
-
 // Hapus data buku
 tbodyData.addEventListener('click', (e) => {
 if (e.target.classList.contains('btnHapus')) {
@@ -109,3 +94,6 @@ dataBuku.splice(index, 1);
 tampilkanData();
 }
 });
+document.querySelector('.logo_name').addEventListener('click', function() {
+    window.location.href = '/petugas'; // Change this to the correct URL
+  });

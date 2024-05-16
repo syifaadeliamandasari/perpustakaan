@@ -403,13 +403,6 @@ th, td {
         <span class="tooltip">Data Buku</span>
       </li>
       <li>
-        <a href="{{ route('anggota') }}">
-            <i class='bx bxs-book-content'></i>
-          <span class="link_name">Data Anggota</span>
-        </a>
-        <span class="tooltip">Data Anggota</span>
-      </li>
-      <li>
         <a href="{{ route('peminjaman') }}">
             <i class="bx bx-calendar"></i>
           <span class="link_name">Peminjaman</span>
@@ -453,7 +446,8 @@ th, td {
             <td>Naufal Shadiq Sumantri</td>
             <td>2024-05-01</td>
             <td>2024-05-04</td>
-            <td>2024-05-02</td>
+            <td>2024-05-30</td>
+            <td><button class="btn btn-danger btnHapus">Denda</button></td>
             <td><button class="btn btn-danger btnHapus">Hapus</button></td>
           </tr>
           <tr>
@@ -508,6 +502,9 @@ th, td {
             window.location.href = "{{ route('login') }}";
         });
     }
+    document.querySelector('.logo_name').addEventListener('click', function() {
+      window.location.href = '/petugas'; // Change this to the correct URL
+    });
   </script>
 </body>
 </html>

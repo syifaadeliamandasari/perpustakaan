@@ -401,13 +401,6 @@ th, td {
         <span class="tooltip">Data Buku</span>
       </li>
       <li>
-        <a href="{{ route('anggota') }}">
-            <i class='bx bxs-book-content'></i>
-          <span class="link_name">Data Anggota</span>
-        </a>
-        <span class="tooltip">Data Anggota</span>
-      </li>
-      <li>
         <a href="{{ route('peminjaman') }}">
             <i class="bx bx-calendar"></i>
           <span class="link_name">Peminjaman</span>

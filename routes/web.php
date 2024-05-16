@@ -32,7 +32,7 @@ Route::get('/register', [RegisterController::class, 'registerPage'])->name('regi
 Route::get('/lupa', [passwordforgotController::class, 'password'])->name('lupa');
 Route::get('/petugas', [petugasController::class, 'petugasPage'])->name('petugas');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::get('/kategori', [datakategoriController::class, 'kategoriPage'])->name('kategori');
+Route::get('/kategoriPetugas', [datakategoriController::class, 'kategoriPage'])->name('kategori');
 Route::get('/buku', [databukuController::class, 'bukuPage'])->name('buku');
 Route::get('/anggota', [dataanggotaController::class, 'anggotaPage'])->name('anggota');
 Route::get('/peminjaman', [peminjamanController::class, 'peminjamanPage'])->name('peminjaman');
