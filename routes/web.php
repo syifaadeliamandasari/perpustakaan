@@ -16,12 +16,9 @@ use App\Http\Controllers\DetailBookController;
 use App\Http\Controllers\PopularBookController;
 use App\Http\Controllers\ForYouController;
 use App\Http\Controllers\CategoryController;
-<<<<<<< HEAD
 use App\Http\Controllers\FavoriteController;
-=======
 use App\Http\Controllers\loginAdminController;
 use App\Http\Controllers\loginUserController;
->>>>>>> 4ff45c106601c58517e4d8e935f6973f209761c8
 
 /*
 |--------------------------------------------------------------------------
@@ -50,10 +47,7 @@ Route::get('/dashboard/detailbook', [DetailBookController::class, 'DetailBookPag
 Route::get('/dashboard/popular', [PopularBookController::class, 'index'])->name('popular');
 Route::get('/dashboard/foryou', [ForYouController::class, 'index'])->name('foryou');
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
-<<<<<<< HEAD
 Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite');
-=======
 Route::get('/loginuser', [loginUserController::class, 'userPage'])->name('loginuser');
 Route::get('/loginadmin', [loginAdminController::class, 'adminPage'])->name('loginadmin');
 
->>>>>>> 4ff45c106601c58517e4d8e935f6973f209761c8
