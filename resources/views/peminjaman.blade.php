@@ -361,7 +361,9 @@ th, td {
   th {
     background-color: #f2f2f2;
   }
-
+.iya{
+    margin-bottom: 4%;
+}
   </style>
 </head>
 <body>
@@ -401,13 +403,6 @@ th, td {
         <span class="tooltip">Data Buku</span>
       </li>
       <li>
-        <a href="{{ route('anggota') }}">
-            <i class='bx bxs-book-content'></i>
-          <span class="link_name">Data Anggota</span>
-        </a>
-        <span class="tooltip">Data Anggota</span>
-      </li>
-      <li>
         <a href="{{ route('peminjaman') }}">
             <i class="bx bx-calendar"></i>
           <span class="link_name">Peminjaman</span>
@@ -433,8 +428,7 @@ th, td {
   <section class="home-section">
     <div class="text">Dashbord</div>
     <div class="container">
-        <h2>Pengembalian</h2>
-        <button class="btn btn-primary" id="btnTambah">Tambah Data</button>
+        <h2 class="iya">Peminjaman</h2>
         <table id="tableData">
           <thead>
             <tr>
@@ -513,142 +507,9 @@ th, td {
             window.location.href = "{{ route('login') }}";
         });
     }
-    const modalPeminjaman = document.getElementById('modalPeminjaman');
-const btnTambahPeminjaman = document.getElementById('btnTambah');
-const btnBatalPeminjaman = document.getElementById('btnBatalPeminjaman');
-const formPeminjaman = document.getElementById('formPeminjaman');
-const tbodyDataPeminjaman = document.getElementById('tbodyData');
-
-let dataPeminjaman = []; // Simpan data peminjaman
-
-// Tampilkan modal tambah data peminjaman
-btnTambahPeminjaman.addEventListener('click', () => {
-  modalPeminjaman.style.display = 'block';
-  document.getElementById('modalTitle').textContent = 'Tambah Data Peminjaman';
-  formPeminjaman.reset();
-});
-
-// Tutup modal ketika tombol Batal ditekan
-btnBatalPeminjaman.addEventListener('click', () => {
-  modalPeminjaman.style.display = 'none';
-});
-
-// Tampilkan data peminjaman
-function tampilkanDataPeminjaman() {
-  tbodyDataPeminjaman.innerHTML = '';
-  dataPeminjaman.forEach((item, index) => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-  <td>${index + 1}</td>
-  <td>${item.buku}</td>
-  <td>${item.nama}</td>
-  <td>${item.tglPeminjaman}</td>
-  <td>${item.tglJatuhTempo}</td>
-  <td>${item.status}</td>
-  <td>
-    <button class="btn btn-primary btnKembali" data-index="${index}">Kembali</button> <!-- Ubah dari 'btnEditPeminjaman' menjadi 'btnKembali' -->
-    <button class="btn btn-danger btnHapusPeminjaman" data-index="${index}">Hapus</button>
-  </td>
-`;
-    tbodyDataPeminjaman.appendChild(tr);
-  });
-}
-
-// Tambah data peminjaman
-formPeminjaman.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const buku = document.getElementById('inputBuku').value;
-  const nama = document.getElementById('nama').value;
-  const tglPeminjaman = document.getElementById('tglPeminjaman').value;
-  const tglJatuhTempo = document.getElementById('tglJatuhTempo').value;
-  const status = document.getElementById('status').value;
-
-  // Validasi data
-  if (buku.trim() !== '' && nama.trim() !== '' && tglPeminjaman.trim() !== '' && tglJatuhTempo.trim() !== '' && status.trim() !== '') {
-    const peminjaman = { buku, nama, tglPeminjaman, tglJatuhTempo, status };
-    dataPeminjaman.push(peminjaman);
-    tampilkanDataPeminjaman();
-    modalPeminjaman.style.display = 'none';
-  }
-});
-
-// Edit data peminjaman
-tbodyDataPeminjaman.addEventListener('click', (e) => {
-  if (e.target.classList.contains('btnEditPeminjaman')) {
-    const index = e.target.getAttribute('data-index');
-    const peminjaman = dataPeminjaman[index];
-    document.getElementById('buku').value = peminjaman.buku;
-    document.getElementById('nama').value = peminjaman.nama;
-    document.getElementById('tglPeminjaman').value = peminjaman.tglPeminjaman;
-    document.getElementById('tglJatuhTempo').value = peminjaman.tglJatuhTempo;
-    document.getElementById('status').value = peminjaman.status;
-    document.getElementById('modalTitle').textContent = 'Edit Data Peminjaman';
-    modalPeminjaman.style.display = 'block';
-
-    // Hapus data yang lama
-    dataPeminjaman.splice(index, 1);
-    tampilkanDataPeminjaman();
-  }
-});
-
-// Hapus data peminjaman
-tbodyDataPeminjaman.addEventListener('click', (e) => {
-  if (e.target.classList.contains('btnHapusPeminjaman')) {
-    const index = e.target.getAttribute('data-index');
-    dataPeminjaman.splice(index, 1);
-    tampilkanDataPeminjaman();
-  }
-});
-// Edit data peminjaman
-tbodyDataPeminjaman.addEventListener('click', (e) => {
-  if (e.target.classList.contains('btnKembali')) { // Ubah dari 'btnEditPeminjaman' menjadi 'btnKembali'
-    const index = e.target.getAttribute('data-index');
-    // Ubah status peminjaman menjadi "Sudah Kembali"
-    dataPeminjaman[index].status = 'Sudah Kembali';
-    tampilkanDataPeminjaman();
-  }
-});
-// Edit data peminjaman
-tbodyDataPeminjaman.addEventListener('click', (e) => {
-  if (e.target.classList.contains('btnKembali')) { // Tombol "Kembali" diklik
-    const index = e.target.getAttribute('data-index');
-    // Ubah status peminjaman menjadi "Sudah Kembali"
-    dataPeminjaman[index].status = 'Sudah Kembali';
-    tampilkanDataPeminjaman();
-
-    // Tambahkan data pengembalian ke array dataPengembalian
-    const pengembalian = {
-      buku: dataPeminjaman[index].buku,
-      nama: dataPeminjaman[index].nama,
-      tglPeminjaman: dataPeminjaman[index].tglPeminjaman,
-      tglJatuhTempo: dataPeminjaman[index].tglJatuhTempo,
-      status: 'Sudah Kembali'
-    };
-    dataPengembalian.push(pengembalian);
-    tampilkanDataPengembalian(); // Tampilkan data pengembalian yang sudah kembali
-  }
-});
-
-// Fungsi untuk menampilkan data pengembalian yang sudah kembali
-function tampilkanDataPengembalian() {
-  tbodyDataPengembalian.innerHTML = '';
-  dataPengembalian.forEach((item, index) => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${item.buku}</td>
-      <td>${item.nama}</td>
-      <td>${item.tglPeminjaman}</td>
-      <td>${item.tglJatuhTempo}</td>
-      <td>${item.status}</td>
-      <td>
-        <button class="btn btn-danger btnHapusPengembalian" data-index="${index}">Hapus</button>
-      </td>
-    `;
-    tbodyDataPengembalian.appendChild(tr);
-  });
-}
-
+    document.querySelector('.logo_name').addEventListener('click', function() {
+      window.location.href = '/petugas'; // Change this to the correct URL
+    });
 </script>
   </section>
 </body>

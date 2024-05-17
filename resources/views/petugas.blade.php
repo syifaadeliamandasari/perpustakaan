@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Responsive | Sidebar</title>
-  <link rel="stylesheet" href="Side.css">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="web icon" type="png" href="logo-html-5-2048.png">
   <style>
@@ -322,6 +321,76 @@ body{
 .bx-log-out{
     margin-top: 10px;
 }
+.container-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .container {
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      flex-grow: 1;
+      min-width: 300px;
+      height: 150px;
+      border-radius: 10px;
+      border: 1px solid #4b5d61;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+
+    .icon img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .bookk {
+      color: black;
+    }
+    table {
+      margin-left:20px;
+      width: 97%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: var(--color-default);
+      color: var(--color-white);
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--color-body);
+    }
+
+    tr:hover {
+      background-color: #f2f2f2;
+    }
   </style>
 </head>
 <body>
@@ -361,13 +430,6 @@ body{
         <span class="tooltip">Data Buku</span>
       </li>
       <li>
-        <a href="{{ route('anggota') }}">
-            <i class='bx bxs-book-content'></i>
-          <span class="link_name">Data Anggota</span>
-        </a>
-        <span class="tooltip">Data Anggota</span>
-      </li>
-      <li>
         <a href="{{ route('peminjaman') }}">
             <i class="bx bx-calendar"></i>
           <span class="link_name">Peminjaman</span>
@@ -381,7 +443,7 @@ body{
         </a>
         <span class="tooltip">Pengembalian</span>
       </li>
-      <li>
+       <li>
         <a href="{{ route('login') }}">
             <i class='bx bx-log-in'></i>
             <span class="link_name">Log Out</span>
@@ -392,6 +454,88 @@ body{
   </div>
   <section class="home-section">
     <div class="text">Dashbord</div>
+    <div class="container-wrapper">
+        <div class="container">
+          <div class="text-container">
+            <h3 class="bookk">100</h3>
+            <h5 class="bookk">Buku</h5>
+          </div>
+          <div class="icon">
+            <img class="image" src="{{ asset('images/book-alt (2).png') }}">
+          </div>
+        </div>
+        <div class="container">
+          <div class="text-container">
+            <h3 class="bookk">200</h3>
+            <h5 class="bookk">Peminjaman</h5>
+          </div>
+          <div class="icon">
+            <img class="image" src="{{ asset('images/comercial.png') }}">
+          </div>
+        </div>
+        <div class="container">
+          <div class="text-container">
+            <h3 class="bookk">504</h3>
+            <h5 class="bookk">Selesai Peminjaman</h5>
+          </div>
+          <div class="icon">
+            <img class="image" src="{{ asset('images/verificacao-de-calendario.png') }}">
+          </div>
+        </div>
+        <div class="container">
+          <div class="text-container">
+            <h3 class="bookk">75</h3>
+            <h5 class="bookk">Pengembalian</h5>
+          </div>
+          <div class="icon">
+            <img class="image" src="{{ asset('images/relogio-calendario (1).png') }}">
+          </div>
+        </div>
+      </div>
+      <table>
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Buku</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Tanggal Peminjaman</th>
+          <th scope="col">Tanggal Jatuh Tempo</th>
+          <th scope="col">Tanggal Kembali</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Dilan</td>
+          <td>Naufal Shadiq Sumantri</td>
+          <td>2024-05-01</td>
+          <td>2024-05-04</td>
+          <td>2024-05-02</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>2</td>
+          <td>Rpl</td>
+          <td>M Kemal</td>
+          <td>2024-05-01</td>
+          <td>2024-05-04</td>
+          <td>2024-05-02</td>
+        </tr>
+        <!-- Tambahkan baris-baris data lainnya sesuai kebutuhan -->
+      </tbody>
+      <tbody>
+        <tr>
+          <td>3</td>
+          <td>One Piece</td>
+          <td>Zhaskia Naysa</td>
+          <td>2024-05-01</td>
+          <td>2024-05-04</td>
+          <td>2024-05-02</td>
+        </tr>
+        <!-- Tambahkan baris-baris data lainnya sesuai kebutuhan -->
+      </tbody>
+    </table>
   </section>
   <script>
     window.onload = function(){
@@ -417,6 +561,7 @@ body{
                 closeBtn.classList.replace("bx-menu-alt-right","bx-menu")
             }
         }
+
 
         // Menangani logout
         logoutBtn.addEventListener("click", function() {

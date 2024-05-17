@@ -99,3 +99,6 @@ if (e.target.classList.contains('btnHapus')) {
   tampilkanData();
 }
 });
+document.querySelector('.logo_name').addEventListener('click', function() {
+    window.location.href = '/petugas'; // Change this to the correct URL
+  });

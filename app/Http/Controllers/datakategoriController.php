@@ -8,6 +8,6 @@ class datakategoriController extends Controller
 {
     public function kategoriPage()
     {
-        return view('kategori');
+        return view('kategoriPetugas');
     }
 }
