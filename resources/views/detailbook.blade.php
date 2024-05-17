@@ -165,6 +165,10 @@
         gap: 30px;
     }
 
+    .star i {
+        color: gold;
+    }
+
     .genre {
         display: flex;
         text-align: center;
@@ -213,6 +217,33 @@
     }
 
     .borrowed i {
+        font-size: 30px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .save {
+        height: 50px;
+        width: 70px;
+        border-radius: 15px;
+        background-color: var(--color-second);
+        font-size: 20px;
+        transition: var(--transition);
+        border: none;
+        gap: 10px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        color: white;
+    }
+
+    .save:hover {
+        background-color: var(--color-default);
+        color: black;
+    }
+
+    .save i {
         font-size: 30px;
         text-align: center;
         align-items: center;
@@ -401,6 +432,11 @@
                         <button class="borrowed">
                             <i class='bx bx-book-reader'></i>
                             Read</button>
+                    </div>
+                    <div class="button-save">
+                        <button class="save">
+                            <i class='bx bx-bookmarks'></i>
+                        </button>
                     </div>
                 </div>
             </div>

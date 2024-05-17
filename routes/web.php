@@ -16,6 +16,7 @@ use App\Http\Controllers\DetailBookController;
 use App\Http\Controllers\PopularBookController;
 use App\Http\Controllers\ForYouController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,4 @@ Route::get('/dashboard/detailbook', [DetailBookController::class, 'DetailBookPag
 Route::get('/dashboard/popular', [PopularBookController::class, 'index'])->name('popular');
 Route::get('/dashboard/foryou', [ForYouController::class, 'index'])->name('foryou');
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
+Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite');

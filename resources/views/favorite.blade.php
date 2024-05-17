@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Category</title>
+    <title>Popular Book</title>
 
     {{-- Bx Icon CDN --}}
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -39,6 +39,7 @@
         min-height: 100vh;
         background-color: var(--color-body);
     }
+
 
     .sidebar {
         min-height: 100vh;
@@ -279,22 +280,17 @@
         width: calc(95% - 250px);
     }
 
-    .sidebar.open~.horor {
+    .sidebar.open~.section {
         left: 200px;
         width: calc(95% - 250px);
     }
 
-    .sidebar.open~.action {
+    .sidebar.open~.for-you {
         left: 200px;
         width: calc(95% - 250px);
     }
 
-    .sidebar.open~.comedy {
-        left: 200px;
-        width: calc(95% - 250px);
-    }
-
-    .sidebar.open~.tbook {
+    .sidebar.open~.recently {
         left: 200px;
         width: calc(95% - 250px);
     }
@@ -356,33 +352,9 @@
         justify-content: space-between;
     }
 
-    .button-horor,
-    .button-action,
-    .button-comedy, .button-tbook {
-        width: 40px;
-        height: 40px;
-        border-radius: 30px;
-        font-size: 50px;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        background-color: var(--color-second);
-        transition: var(--transition);
-        color: white;
-        border: none;
-    }
 
-    .button-horor:hover,
-    .button-action:hover,
-    .button-comedy:hover, .button-tbook:hover {
-        background-color: var(--color-default);
-    }
-
-    /* horor */
-    .horor,
-    .action,
-    .comedy,
-    .tbook {
+    /* Section */
+    .section {
         position: relative;
         background-color: var(--color-body);
         top: 0;
@@ -390,226 +362,45 @@
         transition: all .5s ease;
         z-index: 2;
         display: flex;
-        flex-direction: column;
         margin-left: 100px;
         height: max-content;
         width: 80%;
+        justify-content: space-between;
         padding: 30px;
     }
 
-    .horor-header,
-    .action-header,
-    .comedy-header,
-    .tbook-header {
-        display: flex;
-        justify-content: space-between;
-        text-align: center;
-        height: max-content;
+    .main-section {
         width: 100%;
     }
-
-    .horor-content,
-    .action-content,
-    .comedy-content,
-    .tbook-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .horor-content-book,
-    .action-content-book,
-    .comedy-content-book,
-    .tbook-content-book {
+    .content {
         display: flex;
         justify-content: space-between;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 70px;
     }
 
-    /* Horor Book */
-    .main-horor-book-1 {
-        width: 270px;
-        height: 400px;
+    .content img {
+        width: 300px;
+        height: 450px;
         border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F4.jpg');
-        background-size: cover;
-        display: flex;
         box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
     }
 
-
-    .main-horor-book-2 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F4.jpg');
-        background-size: cover;
-        display: flex;
-        justify-content: space-around;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
+    .content h1 {
+        text-align: center;
     }
 
-    .main-horor-book-3 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F4.jpg');
-        background-size: cover;
+    .book-1 {
         display: flex;
-        justify-content: space-around;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    .main-horor-book-4 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F4.jpg');
-        background-size: cover;
-        display: flex;
-        justify-content: space-around;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    /* Action Book */
-    .main-action-book-1 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F1.jpg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    .main-action-book-2 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F1.jpg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    .main-action-book-3 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F1.jpg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    .main-action-book-4 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F1.jpg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    /* Comedy */
-    .main-comedy-book-1 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F6.jpeg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    .main-comedy-book-2 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F6.jpeg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    .main-comedy-book-3 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F6.jpeg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    .main-comedy-book-4 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F6.jpeg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    /* Tbook */
-    .main-tbook-book-1 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F3.jpg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    .main-tbook-book-2 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F3.jpg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    .main-tbook-book-3 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F3.jpg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
-    }
-
-    .main-tbook-book-4 {
-        width: 270px;
-        height: 400px;
-        border-radius: 10px;
-        margin-top: 20px;
-        background-image: url('/images/F3.jpg');
-        background-size: cover;
-        display: flex;
-        box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
     }
 </style>
 
 <body>
+
     {{-- Sidebar --}}
     <div class="sidebar">
 
@@ -663,7 +454,7 @@
 
         {{-- Title --}}
         <div class="text-header">
-            <h4>Category</h4>
+            <h4>Starlist</h4>
         </div>
 
         {{-- Content --}}
@@ -673,101 +464,45 @@
         </div>
     </header>
 
-    {{-- Horor --}}
-    <div class="horor">
-
-        {{-- Header --}}
-        <div class="horor-header">
-            <h2>Horor</h2>
-            <button class="button-horor">
-                <a href="/dashboard/popular" class="button-horor">
-                    <i class='bx bx-chevron-right'></i>
-                </a>
-            </button>
-        </div>
-
-        {{-- Content --}}
-        <div class="horor-content">
-            <div class="horor-content-book">
-                <div class="main-horor-book-1"></div>
-                <div class="main-horor-book-2"></div>
-                <div class="main-horor-book-3"></div>
-                <div class="main-horor-book-4"></div>
+    <div class="section">
+        <div class="main-section">
+            <div class="content">
+                <div class="book-1">
+                    <img src="{{ asset ('images/F1.jpg') }}" alt="">
+                    <h1>Dilan 1990</h1>
+                </div>
+                <div class="book-1">
+                    <img src="{{ asset ('images/N6.jpeg') }}" alt="">
+                    <h1>A Man Called Ove</h1>
+                </div>
+                <div class="book-1">
+                    <img src="{{ asset ('images/N5.jpeg') }}" alt="">
+                    <h1>In Five Years</h1>
+                </div>
+                <div class="book-1">
+                    <img src="{{ asset ('images/N4.jpeg') }}" alt="">
+                    <h1>Hooked</h1>
+                </div>
+                <div class="book-1">
+                    <img src="{{ asset ('images/F6.jpeg') }}" alt="">
+                    <h1>Ubur - Ubur Lembur</h1>
+                </div>
+                <div class="book-1">
+                    <img src="{{ asset ('images/N3.jpeg') }}" alt="">
+                    <h1>Now I Know</h1>
+                </div>
+                <div class="book-1">
+                    <img src="{{ asset ('images/N1.jpeg') }}" alt="">
+                    <h1>Si Juki</h1>
+                </div>
+                <div class="book-1">
+                    <img src="{{ asset ('images/N2.jpeg') }}" alt="">
+                    <h1>Close To Nowhere</h1>
+                </div>
             </div>
         </div>
     </div>
 
-    {{-- Action --}}
-    <div class="action">
-
-        {{-- Header --}}
-        <div class="action-header">
-            <h2>Action</h2>
-            <button class="button-action">
-                <a href="/dashboard/popular" class="button-action">
-                    <i class='bx bx-chevron-right'></i>
-                </a>
-            </button>
-        </div>
-
-        {{-- Content --}}
-        <div class="action-content">
-            <div class="action-content-book">
-                <div class="main-action-book-1"></div>
-                <div class="main-action-book-2"></div>
-                <div class="main-action-book-3"></div>
-                <div class="main-action-book-4"></div>
-            </div>
-        </div>
-    </div>
-
-    {{-- Comedy --}}
-    <div class="comedy">
-
-        {{-- Header --}}
-        <div class="comedy-header">
-            <h2>Comedy</h2>
-            <button class="button-comedy">
-                <a href="/dashboard/popular" class="button-comedy">
-                    <i class='bx bx-chevron-right'></i>
-                </a>
-            </button>
-        </div>
-
-        {{-- Content --}}
-        <div class="comedy-content">
-            <div class="comedy-content-book">
-                <div class="main-comedy-book-1"></div>
-                <div class="main-comedy-book-2"></div>
-                <div class="main-comedy-book-3"></div>
-                <div class="main-comedy-book-4"></div>
-            </div>
-        </div>
-    </div>
-
-    {{-- Tbook --}}
-    <div class="tbook">
-
-        {{-- Header --}}
-        <div class="tbook-header">
-            <h2>Text Book</h2>
-            <button class="button-tbook">
-                <a href="/dashboard/popular" class="button-tbook">
-                    <i class='bx bx-chevron-right'></i>
-                </a>
-            </button>
-        </div>
-
-        {{-- Content --}}
-        <div class="tbook-content">
-            <div class="tbook-content-book">
-                <div class="main-tbook-book-1"></div>
-                <div class="main-tbook-book-2"></div>
-                <div class="main-tbook-book-3"></div>
-                <div class="main-tbook-book-4"></div>
-            </div>
-        </div>
-    </div>
 
     <script>
         window.onload = function() {
