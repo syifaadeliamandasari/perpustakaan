@@ -19,7 +19,12 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\loginAdminController;
 use App\Http\Controllers\loginUserController;
-
+use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\AdminBukuController;
+use App\Http\Controllers\ReportDendaController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ReportPeminjamanController;
+use App\Http\Controllers\ReportPengembalianController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,4 +55,9 @@ Route::get('/category', [CategoryController::class, 'index'])->name('category');
 Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite');
 Route::get('/loginuser', [loginUserController::class, 'userPage'])->name('loginuser');
 Route::get('/loginadmin', [loginAdminController::class, 'adminPage'])->name('loginadmin');
-
+Route::get('/dashboardAdmin', [DashboardAdminController::class, 'index'])->name('dA');
+Route::get('/adminBuku', [AdminBukuController::class, 'index'])->name('aB');
+Route::get('/reportDenda', [ReportDendaController::class, 'index'])->name('rD');
+Route::get('/member', [MemberController::class, 'index'])->name('member');
+Route::get('/reportPeminjaman', [ReportPeminjamanController::class, 'index'])->name('rPJ');
+Route::get('/reportPengembalian', [ReportPengembalianController::class, 'index'])->name('rPG');
