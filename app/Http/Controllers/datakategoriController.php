@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class datakategoriController extends Controller
 {
-    public function kategoriPage()
+    public function kategori()
     {
         return view('kategoriPetugas');
     }

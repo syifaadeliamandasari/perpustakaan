@@ -134,7 +134,7 @@ a.button{
                 <a href="{{ route('register') }}" class="regis">Register </a>
                 <a href="{{ route('lupa') }}" class="forgot">Forgot Password? </a>
             </div>
-            <a href="{{ route('petugas') }}" class="button" >Login</a>
+            <a href="{{ route('dashboard') }}" class="button" >Login</a>
 		</form>
 	</div>
     <div class="overlay-panel overlay-right">

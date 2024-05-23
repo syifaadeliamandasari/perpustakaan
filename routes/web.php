@@ -16,6 +16,7 @@ use App\Http\Controllers\DetailBookController;
 use App\Http\Controllers\PopularBookController;
 use App\Http\Controllers\ForYouController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\loginAdminController;
 use App\Http\Controllers\loginUserController;
 
@@ -30,22 +31,25 @@ use App\Http\Controllers\loginUserController;
 |
 */
 
-//route login//
-
+//petugas//
 Route::get('/login', [loginPetugasController::class, 'petugasPage'])->name('login');
 Route::get('/register', [RegisterController::class, 'registerPage'])->name('register');
 Route::get('/lupa', [passwordforgotController::class, 'password'])->name('lupa');
 Route::get('/petugas', [petugasController::class, 'petugasPage'])->name('petugas');
-Route::get('/kategoriPetugas', [datakategoriController::class, 'kategoriPage'])->name('kategori');
+Route::get('/kategori', [datakategoriController::class, 'kategori'])->name('kategori');
 Route::get('/buku', [databukuController::class, 'bukuPage'])->name('buku');
 Route::get('/anggota', [dataanggotaController::class, 'anggotaPage'])->name('anggota');
 Route::get('/peminjaman', [peminjamanController::class, 'peminjamanPage'])->name('peminjaman');
-Route::get('/pengambalian', [pengambalianController::class, 'pengambalianPage'])->name('pengambalian');
+Route::get('/pengembalian', [pengambalianController::class, 'pengambalianPage'])->name('pengembalian');
+
+//user//
 Route::get('/dashboard', [DashboardUser::class, 'DashboardPage'])->name('dashboard');
 Route::get('/dashboard/detailbook', [DetailBookController::class, 'DetailBookPage'])->name('detailbook');
 Route::get('/dashboard/popular', [PopularBookController::class, 'index'])->name('popular');
 Route::get('/dashboard/foryou', [ForYouController::class, 'index'])->name('foryou');
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
+Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite');
 Route::get('/loginuser', [loginUserController::class, 'userPage'])->name('loginuser');
-Route::get('/loginadmin', [loginAdminController::class, 'adminPage'])->name('loginadmin');
 
+//admin//
+Route::get('/loginadmin', [loginAdminController::class, 'adminPage'])->name('loginadmin');

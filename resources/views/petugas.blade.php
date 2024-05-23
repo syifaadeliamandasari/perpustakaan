@@ -437,7 +437,7 @@ body{
         <span class="tooltip">Peminjaman</span>
       </li>
       <li>
-        <a href="{{ route('pengambalian') }}">
+        <a href="{{ route('pengembalian') }}">
             <i class="bx bx-calendar-check"></i>
           <span class="link_name">Pengembalian</span>
         </a>
@@ -455,6 +455,15 @@ body{
   <section class="home-section">
     <div class="text">Dashbord</div>
     <div class="container-wrapper">
+        <div class="container">
+            <div class="text-container">
+              <h3 class="bookk">75</h3>
+              <h5 class="bookk">Kategori</h5>
+            </div>
+            <div class="icon">
+              <img class="image" src="{{ asset('images/comentario-alt.png') }}">
+            </div>
+          </div>
         <div class="container">
           <div class="text-container">
             <h3 class="bookk">100</h3>
@@ -480,15 +489,6 @@ body{
           </div>
           <div class="icon">
             <img class="image" src="{{ asset('images/verificacao-de-calendario.png') }}">
-          </div>
-        </div>
-        <div class="container">
-          <div class="text-container">
-            <h3 class="bookk">75</h3>
-            <h5 class="bookk">Pengembalian</h5>
-          </div>
-          <div class="icon">
-            <img class="image" src="{{ asset('images/relogio-calendario (1).png') }}">
           </div>
         </div>
       </div>

@@ -408,7 +408,7 @@ th, td {
         <span class="tooltip">Peminjaman</span>
       </li>
       <li>
-        <a href="{{ route('pengambalian') }}">
+        <a href="{{ route('pengembalian') }}">
             <i class="bx bx-calendar-check"></i>
           <span class="link_name">Pengembalian</span>
         </a>
