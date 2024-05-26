@@ -873,18 +873,11 @@ a {
                 <span class="tooltip">Category</span>
             </li>
             <li>
-                <a href="tabel.html">
+                <a href="/favorite">
                     <i class='bx bxs-bookmarks'></i>
                     <span class="link_name">Starlist</span>
                 </a>
                 <span class="tooltip">Starlist</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="bx bx-cog"></i>
-                    <span class="link_name">Settings</span>
-                </a>
-                <span class="tooltip">Settings</span>
             </li>
         </ul>
     </div>

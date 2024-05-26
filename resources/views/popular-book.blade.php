@@ -132,7 +132,6 @@
         gap: 50px;
         height: max-content;
         margin-top: 150px;
-        margin-left: 45px;
     }
 
     .content-book-3 {
@@ -185,7 +184,7 @@
     }
 
     .top-2 {
-        width: 70px;
+        width: 100px;
         height: 70px;
         border: solid;
         border-color: rgb(112, 112, 112);
@@ -398,7 +397,7 @@
                             <h4>1.5k Review</h4>
                             <div class="genre">
                                 <div class="genre-1">School</div>
-                                <div class="genre-2">TextBook</div>
+                                <div class="genre-2">Text Book</div>
                             </div>
                         </div>
                     </div>
@@ -406,9 +405,9 @@
                     {{-- Content 3 --}}
                     <div class="content-book-3">
                         <h1 class="top-3">3</h1>
-                        <img src="{{ asset('images/F6.jpeg') }}" alt="">
+                        <img src="{{ asset('images/F3.jpg') }}" alt="">
                         <div class="desc-book">
-                            <h1>Ubur-Ubur Lembur</h1>
+                            <h1>Kuliah Jurusan Apa?</h1>
                             <div class="star">
                                 <div class="rating">
                                     <h3>8.5/10</h3>
@@ -423,9 +422,8 @@
                             </div>
                             <h4>1.5k Review</h4>
                             <div class="genre">
-                                <div class="genre-1">Romance</div>
-                                <div class="genre-2">Drama</div>
-                                <div class="genre-2">Comedy</div>
+                                <div class="genre-1">School</div>
+                                <div class="genre-2">Text Book</div>
                             </div>
                         </div>
                     </div>
@@ -520,9 +518,9 @@
 
                         {{-- Content 2 --}}
                         <div class="for-1">
-                            <img src="{{ asset('images/N2.jpeg') }}" alt="">
+                            <img src="{{ asset('images/N3.jpeg') }}" alt="">
                             <div class="for-text-1">
-                                <h1>Close To Nowhere</h1>
+                                <h1>Now I Know </h1>
                                 <div class="for-star">
                                     <i class='bx bxs-star'></i>
                                     <i class='bx bxs-star'></i>
@@ -539,9 +537,9 @@
 
                         {{-- Content 3 --}}
                         <div class="for-1">
-                            <img src="{{ asset('images/N2.jpeg') }}" alt="">
+                            <img src="{{ asset('images/N5.jpeg') }}" alt="">
                             <div class="for-text-1">
-                                <h1>Close To Nowhere</h1>
+                                <h1>In Five Years</h1>
                                 <div class="for-star">
                                     <i class='bx bxs-star'></i>
                                     <i class='bx bxs-star'></i>
@@ -558,9 +556,9 @@
 
                         {{-- Content 4 --}}
                         <div class="for-1">
-                            <img src="{{ asset('images/N2.jpeg') }}" alt="">
+                            <img src="{{ asset('images/N6.jpeg') }}" alt="">
                             <div class="for-text-1">
-                                <h1>Close To Nowhere</h1>
+                                <h1>A Man Called Ove</h1>
                                 <div class="for-star">
                                     <i class='bx bxs-star'></i>
                                     <i class='bx bxs-star'></i>
@@ -577,9 +575,9 @@
 
                         {{-- Content 5 --}}
                         <div class="for-1">
-                            <img src="{{ asset('images/N2.jpeg') }}" alt="">
+                            <img src="{{ asset('images/F4.jpg') }}" alt="">
                             <div class="for-text-1">
-                                <h1>Close To Nowhere</h1>
+                                <h1>Bangku Kosong</h1>
                                 <div class="for-star">
                                     <i class='bx bxs-star'></i>
                                     <i class='bx bxs-star'></i>
@@ -596,9 +594,9 @@
 
                         {{-- Content 5 --}}
                         <div class="for-1">
-                            <img src="{{ asset('images/N2.jpeg') }}" alt="">
+                            <img src="{{ asset('images/F3.jpg') }}" alt="">
                             <div class="for-text-1">
-                                <h1>Close To Nowhere</h1>
+                                <h1>Ubur Ubur Lembur</h1>
                                 <div class="for-star">
                                     <i class='bx bxs-star'></i>
                                     <i class='bx bxs-star'></i>

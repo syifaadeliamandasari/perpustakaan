@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Popular Book</title>
+    <title>Category</title>
 
     {{-- Bx Icon CDN --}}
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -356,9 +356,33 @@
         justify-content: space-between;
     }
 
+    .button-horor,
+    .button-action,
+    .button-comedy, .button-tbook {
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        font-size: 50px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        background-color: var(--color-second);
+        transition: var(--transition);
+        color: white;
+        border: none;
+    }
+
+    .button-horor:hover,
+    .button-action:hover,
+    .button-comedy:hover, .button-tbook:hover {
+        background-color: var(--color-default);
+    }
+
     /* horor */
     .horor,
-    .action, .comedy, .tbook{
+    .action,
+    .comedy,
+    .tbook {
         position: relative;
         background-color: var(--color-body);
         top: 0;
@@ -374,7 +398,9 @@
     }
 
     .horor-header,
-    .action-header, .comedy-header, .tbook-header {
+    .action-header,
+    .comedy-header,
+    .tbook-header {
         display: flex;
         justify-content: space-between;
         text-align: center;
@@ -383,13 +409,17 @@
     }
 
     .horor-content,
-    .action-content, .comedy-content, .tbook-content{
+    .action-content,
+    .comedy-content,
+    .tbook-content {
         display: flex;
         flex-direction: column;
     }
 
     .horor-content-book,
-    .action-content-book, .comedy-content-book, .tbook-content-book{
+    .action-content-book,
+    .comedy-content-book,
+    .tbook-content-book {
         display: flex;
         justify-content: space-between;
     }
@@ -577,9 +607,6 @@
         display: flex;
         box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.526), 0 10px 24px 0 rgba(0, 0, 0, 0.422);
     }
-
-
-
 </style>
 
 <body>
@@ -621,18 +648,11 @@
                 <span class="tooltip">Category</span>
             </li>
             <li>
-                <a href="tabel.html">
+                <a href="/favorite">
                     <i class='bx bxs-bookmarks'></i>
                     <span class="link_name">Starlist</span>
                 </a>
                 <span class="tooltip">Starlist</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="bx bx-cog"></i>
-                    <span class="link_name">Settings</span>
-                </a>
-                <span class="tooltip">Settings</span>
             </li>
         </ul>
     </div>
@@ -659,6 +679,10 @@
         {{-- Header --}}
         <div class="horor-header">
             <h2>Horor</h2>
+            <button class="button-horor">
+                <a href="/dashboard/popular" class="button-horor">
+                    <i class='bx bx-chevron-right'></i>
+                </a>
             </button>
         </div>
 
@@ -679,6 +703,10 @@
         {{-- Header --}}
         <div class="action-header">
             <h2>Action</h2>
+            <button class="button-action">
+                <a href="/dashboard/popular" class="button-action">
+                    <i class='bx bx-chevron-right'></i>
+                </a>
             </button>
         </div>
 
@@ -699,6 +727,10 @@
         {{-- Header --}}
         <div class="comedy-header">
             <h2>Comedy</h2>
+            <button class="button-comedy">
+                <a href="/dashboard/popular" class="button-comedy">
+                    <i class='bx bx-chevron-right'></i>
+                </a>
             </button>
         </div>
 
@@ -719,6 +751,10 @@
         {{-- Header --}}
         <div class="tbook-header">
             <h2>Text Book</h2>
+            <button class="button-tbook">
+                <a href="/dashboard/popular" class="button-tbook">
+                    <i class='bx bx-chevron-right'></i>
+                </a>
             </button>
         </div>
 
