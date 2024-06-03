@@ -154,10 +154,10 @@
         <img class="image" src="{{ asset('images/adminn.png') }}" alt="Admin Image">
       </div>
     </div>
-    <div id="change-password-alert">Change your password</div>
+    <div id="change-password-alert"></div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() {    
         @if(session('changePassword'))
           document.getElementById('change-password-alert').style.display = 'block';
         @endif

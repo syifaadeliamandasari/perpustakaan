@@ -153,7 +153,7 @@ a.button{
         <img class="image" src="{{ asset('images/user.png') }}">
     </div>
 </div>
-<div id="change-password-alert">Change your password</div>
+<div id="change-password-alert"></div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
