@@ -80,6 +80,8 @@ Route::get('/login/petugas', [LoginController::class, 'showPetugasLoginForm'])->
 Route::post('/login/user', [LoginController::class, 'userLogin']);
 Route::post('/login/admin', [LoginController::class, 'adminLogin']);
 Route::post('/login/petugas', [LoginController::class, 'petugasLogin']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
 
 
 Route::get('/dashboard/user', function () {
